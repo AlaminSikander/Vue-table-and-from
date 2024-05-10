@@ -11,17 +11,19 @@
         </tr>
 
         <tr>
-          <th><input v-model="filters.name" placeholder="Filter by name" @input="applyFilters" /></th>
-          <th><input v-model="filters.registered" placeholder="Filter by date" @input="applyFilters" type="date" /></th>
+          <th><input v-model="filters.name" placeholder="Filter by name" @input="applyFilters" class="search-input"/></th>
+          <th><input v-model="filters.registered" placeholder="Filter by date" @input="applyFilters" type="date" class="search-input"/></th>
           <th>
-            <select v-model="filters.role" @change="applyFilters">
+            <select v-model="filters.role" @change="applyFilters" class="search-input">
               <option value="">All</option>
               <option>Guest</option>
               <option>Member</option>
               <option>Staff</option>
               <option>Admin</option>
-            </select></th>
-          <th><select v-model="filters.status" @change="applyFilters">
+            </select>
+          </th>
+          <th>
+            <select v-model="filters.status" @change="applyFilters" class="search-input">
               <option value="">All</option>
               <option>Pending</option>
               <option>Active</option>
@@ -79,7 +81,8 @@ export default {
       filters: {
         name: '',
         registered: '',
-        role: ''
+        role: '', 
+        status: ''
       },
       sortKey: '',
       sortOrders: { name: 1, registered: 1, role: 1, status: 1 },
@@ -144,6 +147,14 @@ export default {
   justify-content: space-between;
   margin-bottom: 20px;
   position: relative;
+}
+
+.search-input{
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .filter-section input {
