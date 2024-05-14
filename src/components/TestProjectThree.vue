@@ -1,5 +1,6 @@
 <template>
   <div class="table-container">
+    <h1>Table Example</h1>
     <table>
       <thead>
         <tr>
@@ -11,24 +12,28 @@
         </tr>
 
         <tr>
-          <th><input v-model="filters.name" placeholder="Filter by name" @input="applyFilters" class="search-input"/></th>
-          <th><input v-model="filters.registered" placeholder="Filter by date" @input="applyFilters" type="date" class="search-input"/></th>
+          <th><input v-model="filters.name"  @input="applyFilters" class="search-input"/></th>
+          <th><input v-model="filters.registered"  @input="applyFilters" type="date" class="search-input"/></th>
           <th>
-            <select v-model="filters.role" @change="applyFilters" class="search-input">
+            <input v-model="filters.role"  @input="applyFilters" class="search-input"/>
+
+            <!-- <select v-model="filters.role" @change="applyFilters" class="search-input">
               <option value="">All</option>
               <option>Guest</option>
               <option>Member</option>
               <option>Staff</option>
               <option>Admin</option>
-            </select>
+            </select> -->
           </th>
           <th>
-            <select v-model="filters.status" @change="applyFilters" class="search-input">
+            <input v-model="filters.status"  @input="applyFilters" class="search-input"/>
+            <!-- <select v-model="filters.status" @change="applyFilters" class="search-input">
               <option value="">All</option>
               <option>Pending</option>
               <option>Active</option>
               <option>Banned</option>
-            </select></th>
+            </select> -->
+          </th>
           <th></th>
         </tr>
 
@@ -98,8 +103,10 @@ export default {
       return this.users.filter(user => {
         return (!this.filters.name || user.name.toLowerCase().includes(this.filters.name.toLowerCase()))
             && (!this.filters.registered || user.registered === this.filters.registered)
-            && (!this.filters.role || user.role === this.filters.role)
-            && (!this.filters.status || user.status === this.filters.status);
+            && (!this.filters.role || user.role.toLowerCase().includes(this.filters.role.toLowerCase()))
+            && (!this.filters.status || user.status.toLowerCase().includes(this.filters.status.toLowerCase()));
+            // && (!this.filters.role || user.role === this.filters.role)
+            // && (!this.filters.status || user.status === this.filters.status);
       });
     },
     sortedUsers() {
@@ -154,9 +161,9 @@ export default {
 
 .search-input{
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 7px;
+  border: 1px solid #cccccc82;
+  border-radius: 6px;
   box-sizing: border-box;
 }
 
@@ -178,9 +185,13 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  border: 1px solid #bcbcbc;
 }
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+tr:hover{
+  background-color: #dddddd69;;
 }
 
 th, td {
