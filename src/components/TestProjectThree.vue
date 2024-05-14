@@ -43,19 +43,22 @@
         </tr>
       </tbody>
     </table>
-    <div class="pagination">
-  <span v-if="currentPage > 1" @click="currentPage--">«</span>
-  <span v-for="n in totalPages" :key="n" @click="currentPage = n" :class="{ active: n === currentPage }">{{ n }}</span>
-  <span v-if="currentPage < totalPages" @click="currentPage++">»</span>
-</div>
-    <div class="items-per-page">
-      <label>Items per page:</label>
-      <select v-model="itemsPerPage" @change="currentPage = 1">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-      </select>
+    <div class="table-footer">
+      <div class="pagination">
+        <span v-if="currentPage > 1" @click="currentPage--">«</span>
+        <span v-for="n in totalPages" :key="n" @click="currentPage = n" :class="{ active: n === currentPage }">{{ n }}</span>
+        <span v-if="currentPage < totalPages" @click="currentPage++">»</span>
+      </div>
+      <div class="items-per-page">
+        <label>Items per page:</label>
+        <select v-model="itemsPerPage" @change="currentPage = 1">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+        </select>
+      </div>
     </div>
+    
   </div>
 </template>
 
@@ -176,64 +179,110 @@ table {
   border-collapse: collapse;
   margin-bottom: 20px;
 }
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 
 th, td {
-  border: 1px solid #ddd;
+  border: none;
   padding: 8px;
   text-align: left;
 }
+
+
 
 th {
   background-color: #f4f4f4;
 }
 
+.table-footer{
+  display: flex;
+  align-items: center;
+
+  flex-direction: row;
+    justify-content: space-between;
+}
+
 .status-pending {
-  color: #E67E22; /* Orange */
+ background-color: orange;
+ padding: 1px 5px;
+  border-radius: 5px;
+  color: white;
+  
 }
 
 .status-active {
-  color: #2ECC71; /* Green */
+  background-color: #28a745;
+  padding: 0px 5px;
+  border-radius: 5px;
+    color: white;
 }
 
 .status-banned {
-  color: #E74C3C; /* Red */
+  background-color: #dc3545; 
+  padding: 0px 5px;
+  border-radius: 5px;
+    color: white;
+
 }
 
 .status-inactive {
-  color: #95A5A6; /* Grey */
+   background-color: #6c757d;
+   padding: 0px 5px;
+  border-radius: 5px;
+    color: white;
+
 }
 
 button {
-  background-color: #3498DB; /* Blue */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  cursor: pointer;
+  border: 1px solid #0056b3;
+    padding: 5px 10px;
+    color: rgb(0, 0, 0);
+    /* background-color: #007bff; Blue */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+    color: #ddd;
 }
 
 .pagination {
   display: flex;
-  justify-content: center;
-}
+    list-style: none;
+    padding: 0;}
+
 
 .pagination span {
-  cursor: pointer;
-  padding: 5px;
-  user-select: none;
+  padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    color: black;
+    margin: 0 2px;
 }
 
 .pagination .active {
-  text-decoration: underline;
+  background-color: #007BFF;
+    color: white;
+    border: 1px solid #007BFF;
+}
+.pagination span:hover:not(.active) {
+    background-color: #ddd;
 }
 
 .items-per-page {
   display: flex;
-  align-items: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    
 }
 
 .items-per-page select {
-  margin-left: 10px;
-  padding: 5px;
+  cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 </style>
