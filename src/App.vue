@@ -2,15 +2,15 @@
 
 
 <template>
- <TestProjectThree/>
+ <lestAndKey/>
   
 </template>
 
 <script>
-import TestProjectThree from './components/TestProjectThree.vue'
+import lestAndKey from './components/lestAndKey.vue'
   export default {
     name:'App',
-    components:{ TestProjectThree }
+    components:{ lestAndKey }
  
 }
 </script>

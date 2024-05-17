@@ -50,10 +50,13 @@
     </table>
     <div class="table-footer">
       <div class="pagination">
+
         <span v-if="currentPage > 1" @click="currentPage--">«</span>
         <span v-for="n in totalPages" :key="n" @click="currentPage = n" :class="{ active: n === currentPage }">{{ n }}</span>
         <span v-if="currentPage < totalPages" @click="currentPage++">»</span>
+
       </div>
+
       <div class="items-per-page">
         <label>Items per page:</label>
         <select v-model="itemsPerPage" @change="currentPage = 1">
@@ -75,15 +78,23 @@ export default {
         { id: 1, name: 'John Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
         { id: 2, name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active' },
         { id: 3, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned' },
-        { id: 4, name: 'John Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
+        { id: 4, name: 'Johnp Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
         { id: 5, name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active' },
         { id: 6, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned' },
-        { id: 7, name: 'John Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
+        { id: 7, name: 'Johnpo Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
         { id: 8, name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active' },
         { id: 9, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned' },
-        { id: 10, name: 'John Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
+        { id: 10, name: 'Johnui Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
         { id: 11, name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active' },
         { id: 12, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned' },
+        { id: 13, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned' },
+        { id: 14, name: 'Johnui Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
+        { id: 15, name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active' },
+        { id: 16, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned' },
+        { id: 17, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned' },
+        { id: 18, name: 'Johnui Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending' },
+        { id: 19, name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active' },
+        { id: 20, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned' },
         // Additional users
       ],
       filters: {
@@ -215,7 +226,7 @@ th {
 }
 
 .status-pending {
- background-color: orange;
+ background-color: rgb(255, 166, 0);
  padding: 1px 5px;
   border-radius: 5px;
   color: white;
