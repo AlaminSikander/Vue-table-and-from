@@ -2,15 +2,15 @@
 
 
 <template>
- <lestAndKey/>
+ <fromHandling/>
   
 </template>
 
 <script>
-import lestAndKey from './components/lestAndKey.vue'
+import fromHandling from './components/fromHandling.vue'
   export default {
     name:'App',
-    components:{ lestAndKey }
+    components:{ fromHandling }
  
 }
 </script>
